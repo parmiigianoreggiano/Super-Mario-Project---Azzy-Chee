@@ -3,14 +3,18 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] public float speed;
+    [Export] private float speed;
 
+    public override void _Process(double delta)
+    {
+
+    }
     public override void _PhysicsProcess(double delta)
     {
         float direction = Input.GetAxis("MoveLeft", "MoveRight");
         if(!IsOnFloor())
-            GD.Print("nervous gulp");
-        Velocity = new Vector2(direction * speed, Velocity.Y) * (float)delta;
+            Velocity = new Vector2(Velocity.X, Velocity.Y + GameManager.Instance.gravity);
+        Velocity = new Vector2(direction * speed, Velocity.Y);
         MoveAndSlide();
     }
 }

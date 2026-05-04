@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://67ldd2624bgd" path="res://icon.svg" id="2_2i4gt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ad8t"]
-size = Vector2(120, 117)
+size = Vector2(120, 101)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 12
 script = ExtResource("1_3y5cq")
-speed = 10000.0
+speed = 350.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.5)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_0ad8t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
