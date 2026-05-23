@@ -7,9 +7,9 @@ public partial class BrickTiles : TileMapLayer
     {
         if(Player.m_Instance._headDetection.IsColliding() && !Player.m_Instance.IsOnFloor())
         {
-            Node2D Brick = (Node2D)Player.m_Instance._headDetection.GetCollider();
-            EraseCell((Vector2I)Brick.Position);
-            GD.Print("Brick detected! Position at " + Brick.Position);
+            Vector2 BrickPos = (Player.m_Instance._headDetection.GetCollisionPoint());
+            EraseCell(LocalToMap(BrickPos));
+            GD.Print("Brick detected! Position at " + BrickPos);
         }
     }
 }
