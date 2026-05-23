@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0yk0r3bfc46s"]
+
+[ext_resource type="Texture2D" uid="uid://67ldd2624bgd" path="res://icon.svg" id="1_n0lms"]
+[ext_resource type="Script" uid="uid://bgiiobw4ocwid" path="res://Scripts/BrickTiles.cs" id="1_yb1y4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0lms"]
+texture = ExtResource("1_n0lms")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_272x6"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 8
+sources/2 = SubResource("TileSetAtlasSource_n0lms")
+
+[node name="BrickTiles" type="TileMapLayer"]
+tile_set = SubResource("TileSet_272x6")
+script = ExtResource("1_yb1y4")

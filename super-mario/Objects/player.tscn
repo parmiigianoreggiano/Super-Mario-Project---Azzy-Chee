@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://huys1i8e32na"]
+[gd_scene load_steps=5 format=3 uid="uid://huys1i8e32na"]
 
 [ext_resource type="Script" uid="uid://bvws0hb0sf3qs" path="res://Scripts/Player.cs" id="1_3y5cq"]
 [ext_resource type="Texture2D" uid="uid://67ldd2624bgd" path="res://icon.svg" id="2_2i4gt"]
@@ -6,12 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ad8t"]
 size = Vector2(120, 101)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_coyoteTimer")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk4ok"]
+size = Vector2(115, 20)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_coyoteTimer", "_feetCollision", "_headDetection")]
 collision_mask = 12
 script = ExtResource("1_3y5cq")
 _speed = 15500.0
 _jumpForce = 28500.0
 _coyoteTimer = NodePath("Coyote Timer")
+_feetCollision = NodePath("FeetCollision")
+_headDetection = NodePath("HeadDetection")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
@@ -28,3 +33,15 @@ texture = ExtResource("2_2i4gt")
 [node name="Coyote Timer" type="Timer" parent="."]
 wait_time = 0.15
 one_shot = true
+
+[node name="FeetCollision" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeetCollision"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_yk4ok")
+
+[node name="HeadDetection" type="RayCast2D" parent="."]
+scale = Vector2(15, 1)
+target_position = Vector2(0, -85)
+collision_mask = 8

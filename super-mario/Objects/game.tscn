@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmghr2ukkaset"]
+[gd_scene load_steps=5 format=3 uid="uid://dmghr2ukkaset"]
 
-[ext_resource type="PackedScene" uid="uid://l0wd2buxcyfy" path="res://Objects/test_stage.tscn" id="1_j3m2o"]
-[ext_resource type="Script" uid="uid://duhwndn266as7" path="res://Scripts/GameManager.cs" id="1_m6s4v"]
-[ext_resource type="PackedScene" uid="uid://huys1i8e32na" path="res://Objects/player.tscn" id="2_m6s4v"]
+[ext_resource type="Script" uid="uid://duhwndn266as7" path="res://Scripts/GameManager.cs" id="1_qn0m5"]
+[ext_resource type="PackedScene" uid="uid://l0wd2buxcyfy" path="res://Objects/test_stage.tscn" id="2_cf3yn"]
+[ext_resource type="PackedScene" uid="uid://huys1i8e32na" path="res://Objects/Player.tscn" id="3_hby63"]
+[ext_resource type="PackedScene" uid="uid://d0yk0r3bfc46s" path="res://Objects/BrickTiles.tscn" id="4_cf3yn"]
 
 [node name="Game" type="Node"]
-script = ExtResource("1_m6s4v")
+script = ExtResource("1_qn0m5")
 _gravity = 2000.0
 
-[node name="TestStage" parent="." instance=ExtResource("1_j3m2o")]
+[node name="TestStage" parent="." instance=ExtResource("2_cf3yn")]
 
-[node name="Player" parent="." instance=ExtResource("2_m6s4v")]
+[node name="Player" parent="." instance=ExtResource("3_hby63")]
 position = Vector2(-67, -65)
+
+[node name="BrickTiles" parent="." instance=ExtResource("4_cf3yn")]
+position = Vector2(-3, -45)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 254, 255, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 2, 0, 0, 0, 0, 0, 0, 0)
